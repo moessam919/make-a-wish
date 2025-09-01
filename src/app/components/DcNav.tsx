@@ -101,7 +101,7 @@ const DcNav = () => {
                                         <ul className="py-1">
                                             <li>
                                                 <Link
-                                                    href="/"
+                                                    href="/about-us"
                                                     className="block px-4 py-2 text-[#0057b8] text-md hover:bg-gray-200 hover:text-[#ff585d] transition-colors duration-200"
                                                 >
                                                     Our History

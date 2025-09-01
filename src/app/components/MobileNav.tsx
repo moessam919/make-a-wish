@@ -187,7 +187,7 @@ const MobileNav = () => {
 
                                 <li className="text-[#0057b8] text-md font-bold ml-5">
                                     <Link
-                                        href="/"
+                                        href="/about-us"
                                         className="flex justify-between"
                                     >
                                         Our History
