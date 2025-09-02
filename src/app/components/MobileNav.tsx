@@ -16,6 +16,7 @@ import { useState, useEffect } from "react";
 const MobileNav = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [isScrolled, setIsScrolled] = useState(false);
+    const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
     const toggleMenu = () => {
         setIsMenuOpen(!isMenuOpen);
@@ -23,6 +24,11 @@ const MobileNav = () => {
 
     const closeMenu = () => {
         setIsMenuOpen(false);
+        setIsDropdownOpen(false);
+    };
+
+    const toggleDropdown = () => {
+        setIsDropdownOpen(!isDropdownOpen);
     };
 
     useEffect(() => {
@@ -111,15 +117,79 @@ const MobileNav = () => {
                                         <ChevronRight />
                                     </Link>
                                 </li>
-                                <li className="text-[#0057b8] text-xl font-bold border-b border-b-gray-400 pb-4">
-                                    <Link
-                                        href="/"
-                                        className="flex justify-between"
-                                        onClick={closeMenu}
+                                <li className="text-[#0057b8] text-xl font-bold border-b border-b-gray-400 pb-4 relative">
+                                    <button
+                                        className="flex justify-between w-full text-left"
+                                        onClick={toggleDropdown}
                                     >
                                         Get Involved
-                                        <ChevronRight />
-                                    </Link>
+                                        <ChevronRight
+                                            className={`transition-transform duration-300 ${
+                                                isDropdownOpen
+                                                    ? "rotate-90"
+                                                    : "rotate-0"
+                                            }`}
+                                        />
+                                    </button>
+
+                                    {/* Dropdown menu */}
+                                    <div
+                                        className={`mt-4 bg-gray-50 rounded-lg overflow-hidden transition-all duration-300 origin-top ${
+                                            isDropdownOpen
+                                                ? "opacity-100 visible transform scale-y-100 max-h-96"
+                                                : "opacity-0 invisible transform scale-y-0 max-h-0"
+                                        }`}
+                                    >
+                                        <div className="w-full h-full">
+                                            <ul className="py-2">
+                                                <li className="hover:bg-gray-100">
+                                                    <Link
+                                                        href="/fundraising"
+                                                        className="block px-4 py-3 text-[#0057b8] text-lg font-semibold transition-colors duration-200 w-full"
+                                                        onClick={closeMenu}
+                                                    >
+                                                        Fundraise
+                                                    </Link>
+                                                </li>
+                                                <li className="hover:bg-gray-100">
+                                                    <Link
+                                                        href="/volunteer"
+                                                        className="block px-4 py-3 text-[#0057b8] text-lg font-semibold transition-colors duration-200 w-full"
+                                                        onClick={closeMenu}
+                                                    >
+                                                        Volunteer
+                                                    </Link>
+                                                </li>
+                                                <li className="hover:bg-gray-100">
+                                                    <Link
+                                                        href="/become-a-national-partner"
+                                                        className="block px-4 py-3 text-[#0057b8] text-lg font-semibold transition-colors duration-200 w-full"
+                                                        onClick={closeMenu}
+                                                    >
+                                                        Corporate Partners
+                                                    </Link>
+                                                </li>
+                                                <li className="hover:bg-gray-100">
+                                                    <Link
+                                                        href="/your-wish-journey-continues"
+                                                        className="block px-4 py-3 text-[#0057b8] text-lg font-semibold transition-colors duration-200 w-full"
+                                                        onClick={closeMenu}
+                                                    >
+                                                        Wish Alumni Community
+                                                    </Link>
+                                                </li>
+                                                <li className="hover:bg-gray-100">
+                                                    <Link
+                                                        href="/other-ways-to-support"
+                                                        className="block px-4 py-3 text-[#0057b8] text-lg font-semibold transition-colors duration-200 w-full"
+                                                        onClick={closeMenu}
+                                                    >
+                                                        Other Ways to Support
+                                                    </Link>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
                                 </li>
                                 <li className="text-[#0057b8] text-xl font-bold border-b border-b-gray-400 pb-4">
                                     <Link
