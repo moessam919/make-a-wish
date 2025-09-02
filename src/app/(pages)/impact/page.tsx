@@ -245,7 +245,7 @@ const VideoShowcaseApp = () => {
             {isMobile && (
                 <button
                     onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                    className="fixed top-25 left-4 z-50 bg-black/30 backdrop-blur-md border border-white/20 p-3 rounded-lg text-white hover:bg-black/50 transition-all duration-300"
+                    className="fixed top-25 left-4 z-40 bg-black/30 backdrop-blur-md border border-white/20 p-3 rounded-lg text-white hover:bg-black/50 transition-all duration-300"
                 >
                     {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
                 </button>
@@ -375,7 +375,7 @@ const VideoShowcaseApp = () => {
                         <div
                             className={`absolute inset-0 bg-gradient-to-br ${
                                 isIntroduction
-                                    ? "from-indigo-900 via-purple-900 to-pink-900"
+                                    ? "from-indigo-900 via-indigo-900 to-indigo-900"
                                     : currentSectionData?.intro.bgColor
                             }`}
                         >

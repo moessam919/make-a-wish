@@ -24,7 +24,7 @@ const DcNav = () => {
     useEffect(() => {
         const handleScroll = () => {
             const scrollTop = window.scrollY;
-            setIsScrolled(scrollTop > 100); // Adjust this value as needed
+            setIsScrolled(scrollTop > 100);
         };
 
         window.addEventListener("scroll", handleScroll);
@@ -222,15 +222,14 @@ const DcNav = () => {
                             </Link>
 
                             {/* DROPDOWN - Click to toggle */}
-                            <li className="relative">
-                                <button
-                                    onClick={() =>
-                                        setIsDropdownOpen(!isDropdownOpen)
-                                    }
-                                    className="text-white text-xl font-bold block"
-                                >
+                            <li
+                                className="relative h-full"
+                                onMouseEnter={() => setIsDropdownOpen(true)}
+                                onMouseLeave={() => setIsDropdownOpen(false)}
+                            >
+                                <button className="text-white text-xl font-bold block h-full">
                                     <div
-                                        className={`hover:bg-[#004796] transition-colors duration-300 flex items-center ${
+                                        className={`hover:bg-[#004796] transition-colors duration-300 flex items-center h-full ${
                                             isScrolled
                                                 ? "py-6 px-4"
                                                 : "py-10 px-4"

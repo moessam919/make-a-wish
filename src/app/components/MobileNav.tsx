@@ -21,6 +21,10 @@ const MobileNav = () => {
         setIsMenuOpen(!isMenuOpen);
     };
 
+    const closeMenu = () => {
+        setIsMenuOpen(false);
+    };
+
     useEffect(() => {
         const handleScroll = () => {
             setIsScrolled(window.scrollY > 0);
@@ -42,13 +46,15 @@ const MobileNav = () => {
             >
                 {/* Logo + Menu */}
                 <div className="flex justify-between items-center w-full bg-[#0057b8] p-4">
-                    <Image
-                        src="/logo.svg"
-                        alt="logo"
-                        width={120}
-                        height={200}
-                        className="object-contain"
-                    />
+                    <Link href="/">
+                        <Image
+                            src="/logo.svg"
+                            alt="logo"
+                            width={120}
+                            height={200}
+                            className="object-contain"
+                        />
+                    </Link>
 
                     <button onClick={toggleMenu} className="relative">
                         <div
@@ -99,6 +105,7 @@ const MobileNav = () => {
                                     <Link
                                         href="/impact"
                                         className="flex justify-between"
+                                        onClick={closeMenu}
                                     >
                                         Impact of a Wish
                                         <ChevronRight />
@@ -108,6 +115,7 @@ const MobileNav = () => {
                                     <Link
                                         href="/"
                                         className="flex justify-between"
+                                        onClick={closeMenu}
                                     >
                                         Get Involved
                                         <ChevronRight />
@@ -117,6 +125,7 @@ const MobileNav = () => {
                                     <Link
                                         href="/refer-a-child"
                                         className="flex justify-between"
+                                        onClick={closeMenu}
                                     >
                                         Refer a Child
                                         <ChevronRight />
@@ -149,6 +158,7 @@ const MobileNav = () => {
                                     <Link
                                         href="/contact-us"
                                         className="flex justify-between"
+                                        onClick={closeMenu}
                                     >
                                         Contact Us
                                     </Link>
@@ -157,6 +167,7 @@ const MobileNav = () => {
                                     <Link
                                         href="/"
                                         className="flex justify-between"
+                                        onClick={closeMenu}
                                     >
                                         En Español
                                     </Link>
@@ -165,6 +176,7 @@ const MobileNav = () => {
                                     <Link
                                         href="/"
                                         className="flex justify-between"
+                                        onClick={closeMenu}
                                     >
                                         Local Chapters
                                     </Link>
@@ -173,6 +185,7 @@ const MobileNav = () => {
                                     <Link
                                         href="/careers"
                                         className="flex justify-between"
+                                        onClick={closeMenu}
                                     >
                                         Careers
                                     </Link>
@@ -189,6 +202,7 @@ const MobileNav = () => {
                                     <Link
                                         href="/about-us"
                                         className="flex justify-between"
+                                        onClick={closeMenu}
                                     >
                                         Our History
                                     </Link>
@@ -197,6 +211,7 @@ const MobileNav = () => {
                                     <Link
                                         href="/mission"
                                         className="flex justify-between"
+                                        onClick={closeMenu}
                                     >
                                         Our Mission
                                     </Link>
@@ -205,6 +220,7 @@ const MobileNav = () => {
                                     <Link
                                         href="/our-stories"
                                         className="flex justify-between"
+                                        onClick={closeMenu}
                                     >
                                         Our Stories
                                     </Link>
@@ -213,6 +229,7 @@ const MobileNav = () => {
                                     <Link
                                         href="/managing-our-funds"
                                         className="flex justify-between"
+                                        onClick={closeMenu}
                                     >
                                         Managing Our Funds
                                     </Link>
@@ -221,6 +238,7 @@ const MobileNav = () => {
                                     <Link
                                         href="/leadership"
                                         className="flex justify-between"
+                                        onClick={closeMenu}
                                     >
                                         Leadership
                                     </Link>
@@ -229,6 +247,7 @@ const MobileNav = () => {
                                     <Link
                                         href="/"
                                         className="flex justify-between"
+                                        onClick={closeMenu}
                                     >
                                         Social
                                     </Link>
@@ -237,6 +256,7 @@ const MobileNav = () => {
                                     <Link
                                         href="/careers"
                                         className="flex justify-between"
+                                        onClick={closeMenu}
                                     >
                                         Careers
                                     </Link>
