@@ -39,6 +39,8 @@ const VideoShowcaseApp = () => {
     const [hasStarted, setHasStarted] = useState<boolean>(false);
     const containerRef = useRef<HTMLDivElement>(null);
     const lastScrollTime = useRef<number>(0);
+    const touchStartY = useRef<number>(0);
+    const touchEndY = useRef<number>(0);
 
     useEffect(() => {
         const checkMobile = () => {
@@ -180,11 +182,85 @@ const VideoShowcaseApp = () => {
             }
         };
 
+        const handleTouchStart = (e: TouchEvent) => {
+            touchStartY.current = e.touches[0].clientY;
+        };
+
+        const handleTouchEnd = (e: TouchEvent) => {
+            touchEndY.current = e.changedTouches[0].clientY;
+            const deltaY = touchStartY.current - touchEndY.current;
+            const now = Date.now();
+            
+            if (now - lastScrollTime.current < 1000) return; // Throttle scroll
+            if (Math.abs(deltaY) < 50) return; // Minimum swipe distance
+
+            lastScrollTime.current = now;
+
+            if (deltaY > 0) {
+                // Swipe up (scroll down)
+                if (currentSection === -1) {
+                    // From introduction to first section
+                    setSlideDirection("down");
+                    setHasStarted(true);
+                    setIsPlaying(true);
+                    setTimeout(() => {
+                        setCurrentSection(0);
+                        setCurrentSlide(0);
+                    }, 50);
+                } else if (currentSlide === 0) {
+                    setSlideDirection("down");
+                    setTimeout(() => setCurrentSlide(1), 50);
+                } else if (currentSection < sections.length - 1) {
+                    setSlideDirection("down");
+                    setTimeout(() => {
+                        setCurrentSection(currentSection + 1);
+                        setCurrentSlide(0);
+                    }, 50);
+                }
+            } else {
+                // Swipe down (scroll up)
+                if (currentSection === 0 && currentSlide === 0) {
+                    // Back to introduction
+                    setSlideDirection("up");
+                    setHasStarted(false);
+                    setIsPlaying(false);
+                    setTimeout(() => {
+                        setCurrentSection(-1);
+                        setCurrentSlide(0);
+                    }, 50);
+                } else if (currentSlide === 1) {
+                    setSlideDirection("up");
+                    setTimeout(() => setCurrentSlide(0), 50);
+                } else if (currentSection > 0) {
+                    setSlideDirection("up");
+                    setTimeout(() => {
+                        setCurrentSection(currentSection - 1);
+                        setCurrentSlide(1);
+                    }, 50);
+                }
+            }
+
+            // Hide scroll indicator after first scroll from introduction
+            if (showScrollIndicator && currentSection === -1) {
+                setShowScrollIndicator(false);
+            }
+        };
+
         window.addEventListener("wheel", handleScroll as EventListener, {
             passive: true,
         });
-        return () =>
+        window.addEventListener("touchstart", handleTouchStart, {
+            passive: true,
+        });
+        window.addEventListener("touchend", handleTouchEnd, {
+            passive: true,
+        });
+        
+        return () => {
             window.removeEventListener("wheel", handleScroll as EventListener);
+            window.removeEventListener("touchstart", handleTouchStart);
+            window.removeEventListener("touchend", handleTouchEnd);
+        };
     }, [currentSection, currentSlide, showScrollIndicator, sections.length]);
 
     useEffect(() => {
@@ -272,7 +348,7 @@ const VideoShowcaseApp = () => {
                             : "-translate-x-full"
                         : "translate-x-0"
                 } ${isMobile ? "w-80" : "w-80"} ${
-                    isIntroduction
+                    isIntroduction && !isMobile
                         ? "opacity-0 pointer-events-none"
                         : "opacity-100"
                 }`}
@@ -296,7 +372,7 @@ const VideoShowcaseApp = () => {
                     </div>
                 )} */}
 
-                <div className="relative z-10 flex flex-col justify-between h-full p-8">
+                <div className="relative z-30 flex flex-col justify-between h-full p-8">
                     {/* Navigation Items */}
                     <div className="flex-1 flex flex-col justify-center space-y-8">
                         {sections.map((section, index) => (
