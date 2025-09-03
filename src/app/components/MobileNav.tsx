@@ -233,24 +233,7 @@ const MobileNav = () => {
                                         Contact Us
                                     </Link>
                                 </li>
-                                <li className="text-[#0057b8] text-md font-bold border-b border-b-gray-400 pb-4">
-                                    <Link
-                                        href="/"
-                                        className="flex justify-between"
-                                        onClick={closeMenu}
-                                    >
-                                        En Español
-                                    </Link>
-                                </li>
-                                <li className="text-[#0057b8] text-md font-bold border-b border-b-gray-400 pb-4">
-                                    <Link
-                                        href="/"
-                                        className="flex justify-between"
-                                        onClick={closeMenu}
-                                    >
-                                        Local Chapters
-                                    </Link>
-                                </li>
+
                                 <li className="text-[#0057b8] text-md font-bold border-b border-b-gray-400 pb-4">
                                     <Link
                                         href="/careers"

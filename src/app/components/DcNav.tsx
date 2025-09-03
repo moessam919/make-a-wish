@@ -63,22 +63,7 @@ const DcNav = () => {
                                         Contact Us
                                     </Link>
                                 </li>
-                                <li className="text-[#0057b8] text-md font-bold">
-                                    <Link
-                                        href="/"
-                                        className="flex justify-between hover:underline"
-                                    >
-                                        En Español
-                                    </Link>
-                                </li>
-                                <li className="text-[#0057b8] text-md font-bold">
-                                    <Link
-                                        href="/"
-                                        className="flex justify-between hover:underline"
-                                    >
-                                        Local Chapters
-                                    </Link>
-                                </li>
+
                                 <li className="text-[#0057b8] text-md font-bold">
                                     <Link
                                         href="/careers"
