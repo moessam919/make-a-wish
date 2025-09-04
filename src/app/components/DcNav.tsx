@@ -10,7 +10,7 @@ import {
 import Image from "next/image";
 import Link from "next/link";
 import React, { useState, useEffect } from "react";
-import DonateButn from "./DonateButn";
+import ContactUsBtn from "./ContactUsBtn";
 
 const DcNav = () => {
     const [isSearchOpen, setIsSearchOpen] = useState(false);
@@ -54,7 +54,7 @@ const DcNav = () => {
                     {/* links */}
                     <div className="lg:max-w-7xl mx-auto flex">
                         <div className="w-1/2 ">
-                            <ul className="flex justify-between ">
+                            <ul className="flex gap-10 ">
                                 <li className="text-[#0057b8] text-md font-bold ">
                                     <Link
                                         href="/contact-us"
@@ -168,7 +168,7 @@ const DcNav = () => {
 
             {/* Logo section - Only this becomes fixed when scrolling */}
             <div
-                className={`bg-[#0057b8] transition-all duration-300 hidden lg:block ${
+                className={`bg-[#0057b8] transition-all duration-300 hidden lg:block  ${
                     isScrolled
                         ? "fixed top-0 left-0 right-0 z-50 shadow-lg p-2"
                         : ""
@@ -302,7 +302,7 @@ const DcNav = () => {
                         </ul>
                     </div>
                     <div>
-                        <DonateButn width="w-full" />
+                        <ContactUsBtn width="w-full" />
                     </div>
                 </div>
             </div>

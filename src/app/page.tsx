@@ -1,5 +1,6 @@
 import Image from "next/image";
 import SignUpSection from "./components/SignUpSection";
+import Link from "next/link";
 
 export default function Home() {
     return (
@@ -46,12 +47,14 @@ export default function Home() {
                             <div
                                 className={`flex items-center justify-center bg-[#FF585D] rounded-full w-fit xl:max-w-sm mt-5 xl:mt-10`}
                             >
-                                <button className="relative overflow-hidden text-white font-semibold w-full text-xl xl:text-5xl bg-[#FF585D] p-4 xl:py-6 rounded-full  hover:bg-[#e54850] transition-colors duration-200">
-                                    {/* Button text always on top */}
-                                    <span className="relative z-5 lg:px-5">
-                                        Donate Now
-                                    </span>
-                                </button>
+                                <Link href="/contact-us" className="w-full">
+                                    <button className="relative overflow-hidden text-white font-semibold w-full text-xl xl:text-5xl bg-[#FF585D] p-4 xl:py-6 rounded-full  hover:bg-[#e54850] transition-colors duration-200">
+                                        {/* Button text always on top */}
+                                        <span className="relative z-5 lg:px-5">
+                                            Contact Us
+                                        </span>
+                                    </button>
+                                </Link>
                             </div>
                         </div>
 
@@ -145,12 +148,14 @@ export default function Home() {
                         <div
                             className={`flex items-center justify-center bg-[#FF585D] rounded-full w-fit mx-auto lg:mx-0 lg:max-w-sm mt-5 xl:mt-10`}
                         >
-                            <button className="relative overflow-hidden text-white font-semibold w-full text-xl xl:text-xl bg-[#FF585D] p-4 xl:py-6 rounded-full  hover:bg-[#e54850] transition-colors duration-200">
-                                {/* Button text always on top */}
-                                <span className="relative z-5 lg:px-5">
-                                    Donate Now
-                                </span>
-                            </button>
+                            <Link href="/contact-us" className="w-full">
+                                <button className="relative overflow-hidden text-white font-semibold w-full text-xl xl:text-xl bg-[#FF585D] p-4 xl:py-6 rounded-full  hover:bg-[#e54850] transition-colors duration-200">
+                                    {/* Button text always on top */}
+                                    <span className="relative z-5 lg:px-5">
+                                        Contact Us
+                                    </span>
+                                </button>
+                            </Link>
                         </div>
                     </div>
                 </div>
@@ -165,7 +170,11 @@ export default function Home() {
                 >
                     <button className="relative overflow-hidden text-white font-semibold w-full text-xl xl:text-lg bg-[#FF585D] p-4 xl:py-4 rounded-full  hover:bg-[#e54850] transition-colors duration-200">
                         {/* Button text always on top */}
-                        <span className="relative z-5 lg:px-5">Donate Now</span>
+                        <Link href="/contact-us">
+                            <span className="relative z-5 lg:px-5">
+                                Contact Us
+                            </span>
+                        </Link>
                     </button>
                 </div>
             </div>

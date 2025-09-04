@@ -1,5 +1,6 @@
 "use client";
 import Image from "next/image";
+import Link from "next/link";
 import { useState, useEffect } from "react";
 
 interface DonateButnProps {
@@ -38,7 +39,9 @@ const DonateButn: React.FC<DonateButnProps> = ({ width = "w-full" }) => {
                 )}
 
                 {/* Button text always on top */}
-                <span className="relative z-10 lg:px-5">Donate</span>
+                <Link href="/contact-us">
+                    <span className="relative z-10 lg:px-5">Contact Us</span>
+                </Link>
 
                 <style jsx global>{`
                     @keyframes spin-and-grow {

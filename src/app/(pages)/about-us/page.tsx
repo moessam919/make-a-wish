@@ -457,9 +457,11 @@ const page = () => {
                         <h1 className="font-bold text-2xl md:text-4xl text-[#0057b8]">
                             Transform lives, one wish at a time.
                         </h1>
-                        <button className="bg-[#FF585D] hover:bg-[#eb4a4f] transition-all duration-150 text-white  py-3 px-8  lg:px-10 lg:text-lg xl:text-xl rounded-full">
-                            Donate
-                        </button>
+                        <Link href="/contact-us">
+                            <button className="bg-[#FF585D] hover:bg-[#eb4a4f] transition-all duration-150 text-white  py-3 px-8  lg:px-10 lg:text-lg xl:text-xl rounded-full">
+                                Contact Us
+                            </button>
+                        </Link>
                     </div>
                 </div>
             </div>
